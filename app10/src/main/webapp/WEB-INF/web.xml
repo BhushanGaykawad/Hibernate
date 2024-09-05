@@ -4,12 +4,26 @@
   <welcome-file-list>
     <welcome-file>registrationform.html</welcome-file> 
   </welcome-file-list>
+   
   <servlet>
   	<servlet-name>actionServlet</servlet-name>
   	<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
   	  	<servlet-name>actionServlet</servlet-name>
   		<url-pattern>*.do</url-pattern>
+  </servlet-mapping> 
+ 
+  <!-- 
+  <servlet>
+  	<servlet-name>myController</servlet-name>
+  	<servlet-class>com.example.controller.MyController</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	  	<servlet-name>myController</servlet-name>
+  		<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+   -->
 </web-app>

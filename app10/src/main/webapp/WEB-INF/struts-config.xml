@@ -14,5 +14,5 @@
 		<forward name="existed" path="/existed.html"/>
 		</action>
 	</action-mappings>
-
+	<plug-in className="com.example.plugin.HibernatePlugin"></plug-in>
 </struts-config>
