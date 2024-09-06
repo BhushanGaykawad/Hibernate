@@ -20,14 +20,17 @@ public class Test {
 		config.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/demo");
 		config.setProperty("hibernate.connection.password", "Bhushan@25");
 		config.setProperty("hibernate.connection.dialect", "org.hibernate.MySQLDialect");
-		config.addResource("Employee.hbm.xml");
 		config.setProperty("hibernate.show_sql", "true");
+//		config.addResource("Employee.hbm.xml");
+		
+		config.addAnnotatedClass(Employee.class);
+		
 		sessionFactory=config.buildSessionFactory();
 		session=sessionFactory.openSession();
 		System.out.println("Session is created");
 		tx=session.beginTransaction();
 		Employee emp= new Employee();
-		emp.setEno(333);
+		emp.setEno(334);
 		emp.setEname("Bhushan");
 		emp.setEaddr("hyd"); 
 		emp.setEsal(100000);
