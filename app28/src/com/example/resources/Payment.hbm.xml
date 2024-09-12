@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.example.entity.Payment" table="Payment">
+		<id name="tx_Id"/>
+		<property name="pay_Date"/>
+		<property name="pay_Amt"/>
+		<joined-subclass name="com.example.entity.CardPayment" table="card_Payment">
+			<key column="TX_ID"/>
+			<property name="card_No"/>
+			<property name="expr_Date"/>	
+		</joined-subclass>
+		<joined-subclass name="com.example.entity.ChequePayment" table="cheque_Payment">
+			<key column="TX_ID"/>
+			<property name="cheque_No"/>
+			<property name="accNo" column="acct_no"/>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>
