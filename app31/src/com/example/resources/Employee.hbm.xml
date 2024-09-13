@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.example.entity.Employee" table="emp">
+		<id name="eno" column="ENO" type="int" length="3"/>
+		<property name="ename" column="ENAME" type="string" length="5"/>
+		<property name="esal" column ="ESAL" type="float" length="5"/>
+		<property name="eaddr" column="EADDR" type="string" length="5"/>
+		<one-to-one name="acc" class="com.example.entity.Account" cascade="all"/>
+	</class>
+</hibernate-mapping>

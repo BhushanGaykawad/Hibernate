@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.example.entity.Account" table="account">
+		<id name="accNo" column="ACCNO" type="string" length="6"/>
+		<property name="accName" column="ACCNAME" type="string" length="7"/>
+		<property name="accType" column="ACCTYPE" type="string" length="8"/>
+		<property name="balance" column="BALANCE" type="int" length="7"/>
+	</class>
+</hibernate-mapping>
