@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.example.entity.Course" table="course">
+		<id name="cid" column="CID" length="5"/>
+		<property name="cname" column="CNAME" length="10"/>
+		<property name="ccost" column="CCOST" length="5"/>
+	</class>
+</hibernate-mapping>
