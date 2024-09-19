@@ -10,15 +10,8 @@
 		<property name="eaddr"/>
 	</class>
 	<sql-query name="sql_Query">
-		<return-scalar column="ENO" type="int"/>
-		<return-scalar column="ENAME" type="string"/>
-		<return-scalar column="ESAL" type="float"/>
-		<return-scalar column="EADDR" type="string"/>
-<!--  
-		select ENO,ENAME,ESAL,EADDR from emp1 where ESAL > ? and ESAL &lt; ?
--->
-		select ENO,ENAME,ESAL,EADDR from emp1 where ESAL > ? and ESAL &lt; :max
-	
-	
+		<return class="com.example.entity.Employee"/>
+		<!-- select * from emp1 -->
+		select * from emp1 where esal > ? and esal &lt; :max
 	</sql-query>
 </hibernate-mapping>

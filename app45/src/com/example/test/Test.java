@@ -9,6 +9,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import com.example.entity.Employee;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -27,27 +29,37 @@ public class Test {
 			registry=builder.build();
 			sessionFactory =cfg.buildSessionFactory(registry);
 			session=sessionFactory.openSession();
-//			SQLQuery sqlQuery=session.createSQLQuery("select eno,ename,esal,eaddr from emp1");
-//			SQLQuery sqlQuery=session.createSQLQuery("select eno,ename,esal,eaddr from emp1 where esal> ? and esal< ?");
-//			sqlQuery.setFloat(0, 6000);
+//			SQLQuery sqlQuery=session.createSQLQuery("select * from emp1");
+//			SQLQuery sqlQuery=session.createSQLQuery("select * from emp1 where ESAL> ? and ESAL < ?");
+//			sqlQuery.setFloat(0,6000);
 //			sqlQuery.setFloat(1, 9000);
-//			SQLQuery sqlQuery=session.createSQLQuery("select eno,ename,esal,eaddr from emp1 where esal > ? and esal < :max");
-//			sqlQuery.setFloat(0, 6000);
+//			SQLQuery sqlQuery=session.createSQLQuery("select * from emp1 where ESAL> :min and ESAL < :max");
+//			sqlQuery.setFloat("min", 6000);
 //			sqlQuery.setFloat("max", 9000);
 			
-			//to get SQL Query from mapping file. 
+//			SQLQuery sqlQuery=session.createSQLQuery("select * from emp1 where ESAL> ? and ESAL < :max");
+//			sqlQuery.setFloat(0, 6000);
+//			sqlQuery.setFloat("max", 9000);
+//			sqlQuery.addEntity(Employee.class);
+			
+			//to retrive the query from Mapping file
 			Query sqlQuery=session.getNamedQuery("sql_Query");
-			sqlQuery.setFloat("max", 9000);
 			sqlQuery.setFloat(0, 6000);
-			List<Object[]>empList=sqlQuery.list();
+			sqlQuery.setFloat("max", 9000);
+
+			List<Employee>empList=sqlQuery.list();
 			System.out.println("ENO\tENAMe\tESAL\tEADDR");
 			System.out.println("-------------------------");
-			for(Object[] obj:empList) {
-				for(Object o:obj) {
-					System.out.print(o+"\t");
-				}
-				System.out.println();
+			for(Employee emp:empList) {
+				System.out.print(emp.getEno()+"\t");
+				System.out.print(emp.getEname()+"\t");
+				System.out.print(emp.getEsal()+"\t");
+				System.out.print(emp.getEaddr()+"\n");
+
 			}
+					
+					  
+		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
