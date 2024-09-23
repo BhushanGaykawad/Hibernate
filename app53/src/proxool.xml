@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxool-config>
+    <proxool>
+        <alias>proxool</alias> 
+        <driver-class>com.mysql.cj.jdbc.Driver</driver-class>
+        <driver-url>jdbc:mysql://localhost:3306/demo</driver-url>
+        <driver-properties>
+            <property name="user" value="bhushan"/>
+            <property name="password" value="Bhushan@25"/>
+        </driver-properties>
+        <minimum-connection-count>1</minimum-connection-count>
+        <maximum-connection-count>5</maximum-connection-count>
+    </proxool>
+</proxool-config>

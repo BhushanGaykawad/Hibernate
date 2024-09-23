@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/demo</property>
+		<property name="hibernate.connection.username">bhushan</property>
+		<property name="hibernate.connection.password">Bhushan@25</property>
+    
+        <!-- Dialect for MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!-- Enable SQL query logging -->
+        <property name="hibernate.show_sql">true</property>
+        
+        <!-- Use Proxool as the connection provider -->
+        <property name="hibernate.connection.provider_class">org.hibernate.proxool.internal.ProxoolConnectionProvider</property>
+        
+        <!-- The pool alias defined in proxool.xml -->
+		<property name="hibernate.proxool.pool_alias">proxool</property>
+        
+        <!-- Path to Proxool XML configuration -->
+        <property name="hibernate.proxool.xml">proxool.xml</property>
+        
+        <!-- Entity mapping -->
+        <mapping class="com.example.entity.Employee" />
+    </session-factory>
+</hibernate-configuration>
